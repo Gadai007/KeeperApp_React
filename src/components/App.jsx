@@ -17,12 +17,25 @@ const App = () => {
         })
     }
 
+    const deleteHandler = (id) => {
+        setSave(prevSave => {
+            return prevSave.filter((note, index) => {
+                return index !== id
+            })
+        })
+    }
+
     return (
         <div>
             <Header />
             <CreateArea onAdd={addNote}/>
             {save.map((note, index) => {
-                return <Note key={index} title={note.title} content={note.content} />
+                return <Note 
+                    key={index} 
+                    id={index}
+                    title={note.title} 
+                    content={note.content} 
+                    onDelete={deleteHandler}/>
             })}
             <Footer/>
         </div>

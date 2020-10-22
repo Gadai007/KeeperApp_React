@@ -20,6 +20,10 @@ function CreateArea(props) {
   const noteSaveHandler = (event) => {
     event.preventDefault()
     props.onAdd(notes)
+    setNotes({
+      title:'',
+      content: ''
+    })
   }
 
   return (
